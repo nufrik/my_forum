@@ -25,18 +25,21 @@
                                 <p class="mb-1">{{ $theme->description }}</p>
                                 <small>Автор: {{ $theme->user->name }}</small>
                             </a>
-                            @endforeach
+                        </div>
+                        @endforeach
                 </div>
             </div>
+            {{ $themes->links() }}
         </div>
     </div>
 </div>
+
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
 
                 @if(Auth::check())
-                    <form action="{{ route('add.theme') }}" method="POST">
+                    <form action="{{ route('add.theme', ['id' => $post]) }}" method="POST">
                         @csrf
                         <div class="mb-3">
 

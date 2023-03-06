@@ -19,15 +19,6 @@ class PostController extends Controller
         ]);
     }
 
-    public function showThemes($id)
-    {
-        $themes = Post::find($id)->themes()->get();
-
-        return view('show-themes', [
-            'themes' => $themes,
-        ]);
-    }
-
     public function formCreate(Request $request)
     {
         if ($request->has('name') and $request->has('description') and $request->has('img')) {

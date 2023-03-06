@@ -28,6 +28,6 @@ Route::match(['get', 'post'],'/home', [PostController::class, 'show'])->name('ho
 
 Route::match(['get', 'post'], '/post/add', [PostController::class, 'formCreate'])->name('add.post');
 
-Route::get('/post/{id}', [PostController::class, 'showThemes']);
+Route::get('/post/{id}', [ThemeController::class, 'showThemes'])->name('show-themes');
 
-Route::match(['get', 'post'], '/theme/add', [ThemeController::class, 'formCreate'])->name('add.theme');
+Route::match(['get', 'post'], '/theme/add/{id}', [ThemeController::class, 'formCreate'])->name('add.theme');
