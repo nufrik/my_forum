@@ -51,4 +51,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Theme::class);
     }
+
+    public function status()
+    {
+        return $this->belongsTo(Status::class, 'status_id', 'id');
+    }
 }

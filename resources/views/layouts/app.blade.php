@@ -56,11 +56,14 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{ route('my.profile') }}">
                                         {{ __('Мой профиль') }}
                                     </a>
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{ route('my.posts') }}">
                                         {{ __('Мои посты') }}
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('my.themes') }}">
+                                        {{ __('Мои темы') }}
                                     </a>
                                     <a class="dropdown-item" href="">
                                         {{ __('Мои сообщения') }}

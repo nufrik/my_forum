@@ -20,12 +20,13 @@
                                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
                                 <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="3" aria-label="Slide 4"></button>
                             </div>
                             <div class="carousel-inner">
 
                                 @foreach($posts as $key => $post)
                                     @if($key == 0)
-                                    <div class="carousel-item active" data-bs-interval="10000">
+                                    <div class="carousel-item active" data-bs-interval="5000">
                                         <a href="{{ 'post/' . $post->id }}">
                                             <img src="{{ asset('/storage/' . $post->img) }}" width="450" height="450" class="d-block w-100" alt="...">
                                         <div class="carousel-caption d-none d-md-block">
@@ -36,7 +37,7 @@
                                         </a>
                                     </div>
                                     @else
-                                        <div class="carousel-item" data-bs-interval="10000">
+                                        <div class="carousel-item" data-bs-interval="2000">
                                             <a href="{{ 'post/' . $post->id }}">
                                             <img src="{{ asset('/storage/' . $post->img) }}" width="450" height="450" class="d-block w-100" alt="...">
                                             <div class="carousel-caption d-none d-md-block">

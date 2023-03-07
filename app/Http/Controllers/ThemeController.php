@@ -20,6 +20,17 @@ class ThemeController extends Controller
         ]);
     }
 
+    public function showMyThemes()
+    {
+        if(Auth::check()){
+            $user = Auth::id();
+            $themes = Theme::where('author', '=', $user)->get();
+        }
+        return view('show-my-themes', [
+            'themes' => $themes,
+        ]);
+    }
+
     public function formCreate(Request $request, $id)
     {
         $post = Post::with(['themes'])->find($id);
@@ -36,10 +47,35 @@ class ThemeController extends Controller
             $theme->post_id = $post->id;
             $theme->save();
 
+            $request->session()->flash('status', 'Тема добавлена!');
+
             return redirect()->route('show-themes', ['id' => $post]);
         }
         return view('add-theme',[
             'post' => $post,
+        ]);
+    }
+
+    public function update(Request $request,$id)
+    {
+        if ($request->has('name') and $request->has('description')) {
+            $request->validate([
+                'name' => ['required','unique:themes,name', 'max:20'],
+                'description' => ['required', 'max:20'],
+            ]);
+            $theme = Theme::findOrFail($id);
+            $theme->name = $request->input('name');
+            $theme->description = $request->input('description');
+            $theme->save();
+
+            $request->session()->flash('status', 'Успешно отредактировано!');
+
+            return redirect()->route('my.themes');
+        }
+        $theme = Theme::findOrFail($id);
+
+        return view('update-theme', [
+            'theme' => $theme,
         ]);
     }
 }
