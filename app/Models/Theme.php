@@ -18,4 +18,9 @@ class Theme extends Model
     {
         return $this->belongsTo(Post::class,'post_id', 'id');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

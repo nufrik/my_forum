@@ -65,7 +65,7 @@
                                     <a class="dropdown-item" href="{{ route('my.themes') }}">
                                         {{ __('Мои темы') }}
                                     </a>
-                                    <a class="dropdown-item" href="">
+                                    <a class="dropdown-item" href="{{ route('my.comments') }}">
                                         {{ __('Мои сообщения') }}
                                     </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"

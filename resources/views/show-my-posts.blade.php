@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Мои посты') }}</div>
+                <div class="card-header text-center">{{ __('Мои посты') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))

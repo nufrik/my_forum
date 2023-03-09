@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Мои профиль') }}</div>
+                <div class="card-header text-center">{{ __('Мои профиль') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -21,6 +21,7 @@
                                 <th scope="col">Имя</th>
                                 <th scope="col">Емейл</th>
                                 <th scope="col">Статус</th>
+                                <th scope="col">Дата регистрации</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -28,6 +29,7 @@
                                 <th scope="row">{{ $user->name }}</th>
                                 <th scope="row">{{ $user->email }}</th>
                                 <th scope="row"> {{ $user->status->name }} </th>
+                                <th scope="row">{{ $user->created_at }}</th>
                             </tr>
                             </tbody>
                         </table>

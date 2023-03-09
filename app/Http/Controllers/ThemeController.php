@@ -78,4 +78,10 @@ class ThemeController extends Controller
             'theme' => $theme,
         ]);
     }
+
+    public function delete($id)
+    {
+        Theme::destroy($id);
+        return redirect()->route('my.themes');
+    }
 }

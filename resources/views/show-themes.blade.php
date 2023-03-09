@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Темы ') . $post->name }}</div>
+                <div class="card-header text-center">{{ __('Темы ') . $post->name }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -17,7 +17,7 @@
                     @endif
                         @foreach($themes as $theme)
                         <div class="list-group">
-                            <a href="#" class="list-group-item list-group-item-action" aria-current="true">
+                            <a href="{{ route('show-comments', ['id' => $theme->id]) }}" class="list-group-item list-group-item-action" aria-current="true">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">{{ $theme->name }}</h5>
                                     <small>{{ $theme->created_at }}</small>

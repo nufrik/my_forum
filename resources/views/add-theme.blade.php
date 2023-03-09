@@ -8,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Создание новой темы') }}</div>
+                <div class="card-header text-center">{{ __('Создание новой темы') }}</div>
 
                 <div class="card-body">
                     @if(Auth::check())
