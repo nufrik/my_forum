@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ThemeController;
@@ -45,5 +46,11 @@ Route::match(['get', 'post'], '/update/theme/{id}', [ThemeController::class, 'up
 Route::get('/theme/delete/{id}', [ThemeController::class, 'delete'])->name('delete.theme');
 
 Route::match(['get', 'post'], '/comment/add/{id}', [CommentController::class, 'create'])->name('add.comment');
+Route::match(['get', 'post'], '/update/comment/{id}', [CommentController::class, 'update'])->name('update.comment');
+Route::get('/comment/delete/{id}', [CommentController::class, 'delete'])->name('delete.comment');
+
+Route::get('/admin', [AdminController::class, 'show'])->middleware('auth')->name('admin.panel');
+Route::get('/profile/user/{id}', [AdminController::class, 'showUserProfile'])->middleware('auth')->name('user.profile');
+Route::get('/change/status/{id}', [AdminController::class, 'changeStatus'])->name('change.status');
 
 

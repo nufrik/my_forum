@@ -74,9 +74,10 @@ class PostController extends Controller
         ]);
     }
 
-    public function delete($id)
+    public function delete(Request $request,$id)
     {
         Post::destroy($id);
+        $request->session()->flash('status', 'Успешно удалено!');
         return redirect()->route('home');
     }
 

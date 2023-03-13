@@ -56,6 +56,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->status_id == 1)
+                                        <a class="dropdown-item" href="{{ route('admin.panel') }}">
+                                            {{ __('Админка') }}
+                                        </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('my.profile') }}">
                                         {{ __('Мой профиль') }}
                                     </a>

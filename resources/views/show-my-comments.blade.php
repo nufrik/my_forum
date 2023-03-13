@@ -31,8 +31,8 @@
                                 <th scope="row">{{ $comment->theme->post->name }}</th>
                                 <th scope="row">{{ $comment->theme->name }}</th>
                                 <th scope="row">{{ $comment->text }}</th>
-                                <th scope="row"><a href="">Редактировать</a></th>
-                                <th scope="row"><a href="">Удалить</a></th>
+                                <th scope="row"><a href="{{ route('update.comment', ['id' => $comment->id]) }}">Редактировать</a></th>
+                                <th scope="row"><a href="{{ route('delete.comment', ['id' => $comment->id]) }}">Удалить</a></th>
                             </tr>
                                 @endforeach
 

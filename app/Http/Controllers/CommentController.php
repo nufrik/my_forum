@@ -36,6 +36,7 @@ class CommentController extends Controller
 
             return redirect()->route('show-comments', ['id' => $theme]);
         }
+        return route('show-comments');
     }
 
     public function showMyComments()
@@ -49,13 +50,31 @@ class CommentController extends Controller
         ]);
     }
 
-    public function update()
+    public function update(Request $request,$id)
     {
+        if ($request->has('text')) {
+            $request->validate([
+                'text' => ['required', 'max:5000'],
+            ]);
+            $comment = Comment::findOrFail($id);
+            $comment->text = $request->input('text');
+            $comment->save();
 
+            $request->session()->flash('status', 'Успешно отредактировано!');
+
+            return redirect()->route('my.comments');
+        }
+        $comment = Comment::findOrFail($id);
+
+        return view('update-comment', [
+            'comment' => $comment,
+        ]);
     }
 
-    public function delete()
+    public function delete(Request $request,$id)
     {
-
+        Comment::destroy($id);
+        $request->session()->flash('status', 'Успешно удалено!');
+        return redirect()->route('my.comments');
     }
 }
