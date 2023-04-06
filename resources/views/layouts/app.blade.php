@@ -24,6 +24,15 @@
                 <a class="navbar-brand" href="{{ route('home') }}">
                     {{ 'Главная' }}
                 </a>
+                <span class="navbar-brand"> Ваш город: @php
+                        $ch = curl_init('http://ipwho.is/?lang=ru');
+                        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                        curl_setopt($ch, CURLOPT_HEADER, false);
+                        $ipwhois = json_decode(curl_exec($ch), true);
+                        curl_close($ch);
+                        $city = $ipwhois['city'];
+                        echo $city;
+                        @endphp</span>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

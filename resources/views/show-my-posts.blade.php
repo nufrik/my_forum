@@ -30,7 +30,7 @@
                                 <th scope="row">{{ $post->name }}</th>
                                 <th scope="row">{{ $post->description }}</th>
                                 <th scope="row"><a href="{{ route('update.post', ['id' => $post->id]) }}">Редактировать</a></th>
-                                <th scope="row"><a href="{{ route('delete.post', ['id' => $post->id]) }}">Удалить</a></th>
+                                <th scope="row"><a href="{{ route('delete.post', ['id' => $post->id]) }}" class="text-danger">Удалить</a></th>
                             </tr>
                                 @endforeach
 

@@ -32,7 +32,7 @@
                                 <th scope="row">{{ $comment->theme->name }}</th>
                                 <th scope="row">{{ $comment->text }}</th>
                                 <th scope="row"><a href="{{ route('update.comment', ['id' => $comment->id]) }}">Редактировать</a></th>
-                                <th scope="row"><a href="{{ route('delete.comment', ['id' => $comment->id]) }}">Удалить</a></th>
+                                <th scope="row"><a href="{{ route('delete.comment', ['id' => $comment->id]) }}" class="text-danger">Удалить</a></th>
                             </tr>
                                 @endforeach
 

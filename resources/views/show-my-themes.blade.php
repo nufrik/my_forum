@@ -32,7 +32,7 @@
                                 <th scope="row">{{ $theme->name }}</th>
                                 <th scope="row">{{ $theme->description }}</th>
                                 <th scope="row"><a href="{{ route('update.theme', ['id' => $theme->id]) }}">Редактировать</a></th>
-                                <th scope="row"><a href="{{ route('delete.theme', ['id' => $theme->id]) }}">Удалить</a></th>
+                                <th scope="row"><a href="{{ route('delete.theme', ['id' => $theme->id]) }}" class="text-danger">Удалить</a></th>
                             </tr>
                                 @endforeach
 

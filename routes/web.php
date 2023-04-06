@@ -29,6 +29,7 @@ Auth::routes();
 Route::match(['get', 'post'],'/', [PostController::class, 'show'])->name('home');
 Route::match(['get', 'post'],'/home', [PostController::class, 'show'])->name('home');
 
+
 Route::match(['get', 'post'], '/post/add', [PostController::class, 'formCreate'])->name('add.post');
 Route::match(['get', 'post'], '/update/post/{id}', [PostController::class, 'update'])->name('update.post');
 Route::get('/post/delete/{id}', [PostController::class, 'delete'])->name('delete.post');
@@ -52,5 +53,6 @@ Route::get('/comment/delete/{id}', [CommentController::class, 'delete'])->name('
 Route::get('/admin', [AdminController::class, 'show'])->middleware('auth')->name('admin.panel');
 Route::get('/profile/user/{id}', [AdminController::class, 'showUserProfile'])->middleware('auth')->name('user.profile');
 Route::get('/change/status/{id}', [AdminController::class, 'changeStatus'])->name('change.status');
+Route::match(['get', 'post'], '/admin/update/post/{id}', [AdminController::class, 'update'])->name('admin.update.post');
 
 
